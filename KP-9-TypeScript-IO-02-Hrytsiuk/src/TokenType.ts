@@ -10,13 +10,15 @@ export default class TokenType {
 
 export const tokenTypeList = {
   number: new TokenType("NUMBER", "[0-9]*"),
-  mainFunc: new TokenType("MAIN_FUNCTION", "int main"),
+  initialize: new TokenType("INIT", "int"),
+  mainFunc: new TokenType("MAIN_FUNCTION", "main"),
+  funcName: new TokenType("FUNCTION_NAME", "task"),
   returnStatement: new TokenType("RETURN", "return"),
   endOfLine: new TokenType("SEMICOLON", "\\;"),
   whileLoop: new TokenType("whileLoop", "while"),
   ifOperator: new TokenType("IF", "if"),
   elseOperator: new TokenType("ELSE", "else"),
-  var: new TokenType("VARIABLE", "[a-z_]*"),
+  var: new TokenType("VARIABLE", "[a-z_0-9]*"),
   space: new TokenType("SPACE", "[ \\n\\t\\r]"),
   equals: new TokenType("equals", "\\=="),
   assign: new TokenType("ASSIGN", "\\="),

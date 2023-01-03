@@ -1,42 +1,36 @@
-int main()
+int task(int n)
 {
-  int n = 5;
-  int res_a = 0, res_b = 0, init_a = 2, init_b = 1;
-  int i = 0;
-  while(i < n)
+  int var_1 = 1;
+  int i = 2,v = 1,k = 1;
+  while(v < n + 1)
   {
-    if (i % 2 == 0)
-    {
-      res_a += (init_a * (init_a - 1));
-    }
-    else
-    {
-      res_a += (init_a * (init_a + 1));
-      init_a += 2;
-    }
-
-    if (i == 0)
-    {
-      res_b += (1 / 1);
-      init_b = 4;
-    }
-    else
-    {
-      if (init_b % (i + 1) == 0)
-      {
-        res_b += (init_b / (i + 1));
-      }
-      init_b *= 2;
-    }
-    i = i + 1;
+    var_1 = var_1 * i * (i - 1);
+    var_1 = var_1 * i * (i + 1);
+    i = i + 2;
+    v = v + 1;
   }
-
-  if (res_a > res_b)
+  int var_2 = 1,count = 2,j = 4;
+  while(k < n + 1)
   {
-    return res_a;
+    if (j % count == 0)
+    {
+      var_2 = var_2 * j / count;
+      count = count + 1;
+      j = j * 2;
+    }
+    k = k + 1;
+  }
+  if (var_2 > var_1)
+  {
+    return var_2;
   }
   else
   {
-    return res_b;
+    return var_1;
   }
+}
+
+int main()
+{
+  return task(2);
 }

@@ -1,41 +1,37 @@
 #include <stdio.h>
-int main()
+int task(int n)
 {
-  int N = 1;
-  int res1 = 0, res2 = 0, init1 = 2, init2 = 1;
-  for (int i = 0; i < N; i++)
+  int var_1 = 1;
+  int i = 2,v = 1,k = 1;
+  while (v < n + 1)
   {
-    if (i % 2 == 0)
-    {
-      res1 += (init1 * (init1 - 1));
-    }
-    else
-    {
-      res1 += (init1 * (init1 + 1));
-      init1 += 2;
-    }
-
-    if (i == 0)
-    {
-      res2 += (1 / 1);
-      init2 = 4;
-    }
-    else
-    {
-      if (init2 % (i + 1) == 0)
-      {
-        res2 += (init2 / (i + 1));
-      }
-      init2 *= 2;
-    }
+    var_1 = var_1 * i * (i - 1);
+    var_1 = var_1 * i * (i + 1);
+    i = i + 2;
+    v = v + 1;
   }
-
-  if (res1 > res2)
+  int var_2 = 1,count = 2,j = 4;
+  while (k < n + 1)
   {
-    printf("Шукане число: %d", res1);
+    if (j % count == 0)
+    {
+      var_2 = var_2 * j / count;
+      count = count + 1;
+      j = j * 2;
+    }
+    k = k + 1;
+  }
+  if (var_2 > var_1)
+  {
+    return var_2;
   }
   else
   {
-    printf("Шукане число: %d", res2);
+    return var_1;
   }
+}
+
+int main()
+{
+  printf("%d", task(2));
 }

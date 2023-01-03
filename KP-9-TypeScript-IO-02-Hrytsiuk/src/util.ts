@@ -5,6 +5,7 @@ export const Prefixes = {
   SYSTEM_FILE_READ_SUCCESS: (file: string): string => `[` + chalk.magenta("System") + `] ` + chalk.green(`Successfully read ${file} file`),
   SYSTEM_FILE_READ_FAIL: (err: unknown) => `[` + chalk.magenta("System") + `] ` + chalk.red(`An error occured while reading file: ` + `${err}`),
   SYSTEM_WRITE_FILE_SUCCESS: `[` + chalk.magenta("System") + `] ` + chalk.green("Successfully created ASM file"),
+  LEXER_AST_CREATE_SUCCESS: `[` + chalk.blue("Lexer") + `] ` + chalk.green("Generated AST tree successfully!"),
   SYSTEM_WRITE_FILE_FAIL: (err: unknown) => `[` + chalk.magenta("System") + `] ` + chalk.red(`Failed to create/write to an ASM file: ` + `${err}`),
   LEXER_START_SUCCESS: `[` + chalk.blue("Lexer") + `] ` + chalk.green("Lexer started successfully"),
   LEXER_GEN_SUCCESS: `[` + chalk.blue("Lexer") + `] ` + chalk.green("Generating tokens process ended successfully"),
@@ -34,7 +35,12 @@ export const wFile = (contents: string, fileToCreate: string): void => {
       path.resolve(__dirname, "..") + `/${fileToCreate}`,
       contents
     );
-    console.log(Prefixes.SYSTEM_WRITE_FILE_SUCCESS);
+    if(fileToCreate === 'output.asm') {
+      console.log(Prefixes.SYSTEM_WRITE_FILE_SUCCESS);
+    }
+    if ( fileToCreate === 'ast.txt'){
+      console.log(Prefixes.LEXER_AST_CREATE_SUCCESS)
+    }
   } catch (e) {
     console.error(Prefixes.SYSTEM_WRITE_FILE_FAIL(e));
   }

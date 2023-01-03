@@ -1,13 +1,4 @@
-import {wFile} from './util';
-
-export default class Parser {
-	public code: string;
-	constructor(code: string) {
-		this.code = code;
-	}
-	public aboba() {
-		wFile(
-			String.raw`.386
+.386
 .model flat, stdcall
 option casemap: none
 
@@ -107,8 +98,4 @@ start:
         invoke ExitProcess, 0
 end start
 
-Exit`,
-        'output.asm'
-    );
-  }
-}
+Exit

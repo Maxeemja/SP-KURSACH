@@ -57,7 +57,7 @@ export default class Lexer {
 
   public tokenListToString(list: Token[]): string {
     let str = "";
-    const aboba = list.map((token) =>
+    list.map((token) =>
         str += `Token { Type: ${token.type.name}, text: "${token.text}", pos: ${token.pos} },\n`)
 
     return str
@@ -68,12 +68,12 @@ export default class Lexer {
     let prevToken: string;
     let flag = false;
     list.map((token) => {
-      if(prevToken == 'LBRACE') {
+      if (['IF', 'ELSE', 'whileLoop'].includes(prevToken)) {
         flag = true;
       }
       str += `${flag ? '\t' : ''}{${token.text}} => (${token.type.name}),\n`
       prevToken = token.type.name;
-      if(prevToken == 'RBRACE') {
+      if (prevToken == 'RBRACE') {
         flag = false;
       }
     })
