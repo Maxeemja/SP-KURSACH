@@ -1,0 +1,4 @@
+{int} => (VARIABLE),
+{main} => (mainFunc),
+{(} => (LPAR),
+{)} => (RPAR),

@@ -1,0 +1,4 @@
+Token { Type: VARIABLE, text: "int", pos: 0 },
+Token { Type: mainFunc, text: "main", pos: 4 },
+Token { Type: LPAR, text: "(", pos: 8 },
+Token { Type: RPAR, text: ")", pos: 9 },
