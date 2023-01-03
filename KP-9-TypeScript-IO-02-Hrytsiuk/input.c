@@ -1,42 +1,42 @@
-void main()
+int main()
 {
-  int N = 5;
-  int res1 = 0, res2 = 0, init1 = 2, init2 = 1;
+  int n = 5;
+  int res_a = 0, res_b = 0, init_a = 2, init_b = 1;
   int i = 0;
-  while(i < N)
+  while(i < n)
   {
     if (i % 2 == 0)
     {
-      res1 += (init1 * (init1 - 1));
+      res_a += (init_a * (init_a - 1));
     }
     else
     {
-      res1 += (init1 * (init1 + 1));
-      init1 += 2;
+      res_a += (init_a * (init_a + 1));
+      init_a += 2;
     }
 
     if (i == 0)
     {
-      res2 += (1 / 1);
-      init2 = 4;
+      res_b += (1 / 1);
+      init_b = 4;
     }
     else
     {
-      if (init2 % (i + 1) == 0)
+      if (init_b % (i + 1) == 0)
       {
-        res2 += (init2 / (i + 1));
+        res_b += (init_b / (i + 1));
       }
-      init2 *= 2;
+      init_b *= 2;
     }
     i = i + 1;
   }
 
-  if (res1 > res2)
+  if (res_a > res_b)
   {
-    printf("Шукане число: %d", res1);
+    return res_a;
   }
   else
   {
-    printf("Шукане число: %d", res2);
+    return res_b;
   }
 }

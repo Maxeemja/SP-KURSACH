@@ -1,6 +1,6 @@
 import Token from "./Token";
-import { tokenTypeList } from "./TokenType";
-import { Prefixes, wFile } from "./util";
+import {tokenTypeList} from "./TokenType";
+import {Prefixes, wFile} from "./util";
 
 export default class Lexer {
   code: string;
@@ -13,9 +13,10 @@ export default class Lexer {
 
   public lexAnalysis(): Token[] {
     console.log(Prefixes.LEXER_START_SUCCESS);
-    while (this.nextToken()) {}
+    while (this.nextToken()) {
+    }
     this.tokenList = this.tokenList.filter(
-      (token) => token.type.name !== tokenTypeList.space.name
+        (token) => token.type.name !== tokenTypeList.space.name
     );
 
     return this.tokenList;
@@ -56,16 +57,26 @@ export default class Lexer {
 
   public tokenListToString(list: Token[]): string {
     let str = "";
-    const aboba = list.map((token) => 
-    str += `Token { Type: ${token.type.name}, text: "${token.text}", pos: ${token.pos} },\n`)
+    const aboba = list.map((token) =>
+        str += `Token { Type: ${token.type.name}, text: "${token.text}", pos: ${token.pos} },\n`)
 
     return str
   }
 
   public tokenListToAST(list: Token[]): string {
     let str = "";
-    const aboba = list.map((token) => 
-    str += `{${token.text}} => (${token.type.name}),\n`)
+    let prevToken: string;
+    let flag = false;
+    list.map((token) => {
+      if(prevToken == 'LBRACE') {
+        flag = true;
+      }
+      str += `${flag ? '\t' : ''}{${token.text}} => (${token.type.name}),\n`
+      prevToken = token.type.name;
+      if(prevToken == 'RBRACE') {
+        flag = false;
+      }
+    })
 
     return str
   }

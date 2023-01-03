@@ -57,7 +57,7 @@ main ENDP
 start:
 call main
 end start`,
-			'test.asm'
+			'output.asm'
 		);
 	}
 }
