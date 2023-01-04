@@ -10,4 +10,4 @@ const parser = new Parser(input)
 lexer.lexAnalysis();
 lexer.createTokenListFile()
 lexer.createASTFile()
-parser.aboba()
+parser.biba()

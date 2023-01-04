@@ -33,5 +33,5 @@ int task(int n)
 
 int main()
 {
-  printf("%d", task(2));
+  printf("%d", ta());
 }
